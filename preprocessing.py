@@ -87,8 +87,8 @@ record_nums = []
 #------------------------Main DF Creation----------------------------------
 '''
 for record_num in records_list: 
-    record_data = wfdb.rdrecord(f"finalDatabase/{record_num}")
-    annotation = wfdb.rdann(f"finalDatabase/{record_num}", "atr")
+    record_data = wfdb.rdrecord(f"FinalProject/finalDatabase/{record_num}")
+    annotation = wfdb.rdann(f"FinalProject/finalDatabase/{record_num}", "atr")
 
     signals = record_data.p_signal
     mlii = signals[:, 0]
@@ -127,8 +127,8 @@ main_df.to_csv("/Users/joshuawei/Downloads/ECS 111/FinalProject/main_df.csv", in
 '''
 #------------------------Graph of High Pass Filter----------------------------------
 
-test_record = wfdb.rdrecord(f"/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100")
-test_annotation = wfdb.rdann(f"/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100", "atr")
+test_record = wfdb.rdrecord(f"FinalProject/finalDatabase/100")
+test_annotation = wfdb.rdann(f"FinalProject/finalDatabase/100", "atr")
 
 signals = test_record.p_signal
 mlii = signals[:, 0]
@@ -155,8 +155,8 @@ plt.show()
 
 #------------------------Graph of Band Pass Filter----------------------------------
 
-test_record = wfdb.rdrecord(f"/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100")
-test_annotation = wfdb.rdann(f"/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100", "atr")
+test_record = wfdb.rdrecord(f"FinalProject/finalDatabase/100")
+test_annotation = wfdb.rdann(f"FinalProject/finalDatabase/100", "atr")
 
 signals = test_record.p_signal
 mlii = signals[:, 0]
