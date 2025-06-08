@@ -24,6 +24,8 @@ import matplotlib.pyplot as plt
 #High Pass Filter = removes low freq/baseline drift ~ keeps everything above 0.5 Hz
 #Band Pass Filter = removes low and high freq ~ keeps everything between 0.5 Hz - 40 Hz
 
+#23367 Heart Attack Beats
+#23367 Non Heart Attack Beats
 
 #-----------Functions-----------
 
@@ -83,7 +85,7 @@ y = []
 record_nums = []
 
 #------------------------Main DF Creation----------------------------------
-''
+'''
 for record_num in records_list: 
     record_data = wfdb.rdrecord(f"finalDatabase/{record_num}")
     annotation = wfdb.rdann(f"finalDatabase/{record_num}", "atr")
@@ -122,7 +124,7 @@ df_nha_undersample = df_nha.sample(n = len(df_ha), random_state = 69) #undersamp
 
 main_df = pd.concat([df_ha, df_nha_undersample]).sample(frac = 1, random_state = 69) #main df for preprocessing
 main_df.to_csv("/Users/joshuawei/Downloads/ECS 111/FinalProject/main_df.csv", index=False)
-''
+'''
 #------------------------Graph of High Pass Filter----------------------------------
 
 test_record = wfdb.rdrecord(f"/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100")
@@ -178,3 +180,4 @@ plt.ylabel("ECG amplitude (mV)")
 plt.legend()
 plt.grid(True)
 plt.show()
+
