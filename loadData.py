@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 
 #-----------End Notes-----------
 
-record = wfdb.rdrecord("/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100") #loads data
-annotation = wfdb.rdann("/Users/joshuawei/Downloads/ECS 111/FinalProject/finalDatabase/100", "atr") #annotations for each heartbeat
+record = wfdb.rdrecord("finalDatabase/100") #loads data
+annotation = wfdb.rdann("finalDatabase/100", "atr") #annotations for each heartbeat
 
 wfdb.plot_wfdb(record=record, annotation=annotation) #PLOT OF FULL RAW FILE
 
