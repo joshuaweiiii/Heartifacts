@@ -24,8 +24,8 @@ import matplotlib.pyplot as plt
 #High Pass Filter = removes low freq/baseline drift ~ keeps everything above 0.5 Hz
 #Band Pass Filter = removes low and high freq ~ keeps everything between 0.5 Hz - 40 Hz
 
-#23367 Heart Attack Beats
-#23367 Non Heart Attack Beats
+#10000 Heart Attack Beats
+#10000 Non Heart Attack Beats
 
 #-----------Functions-----------
 
