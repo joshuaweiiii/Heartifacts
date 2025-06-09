@@ -85,7 +85,7 @@ y = []
 record_nums = []
 
 #------------------------Main DF Creation----------------------------------
-'''
+
 for record_num in records_list: 
     record_data = wfdb.rdrecord(f"finalDatabase/{record_num}")
     annotation = wfdb.rdann(f"finalDatabase/{record_num}", "atr")
@@ -120,11 +120,12 @@ df["Record Number"] = record_num
 df_ha = df[df["Label"] == 1] #all heart attack
 df_nha = df[df["Label"] == 0] #all non heart attack
 
-df_nha_undersample = df_nha.sample(n = len(df_ha), random_state = 69) #undersample for balancing
+df_ha_undersample = df_ha.sample(n = 10000, random_state = 69) #undersample for balancing and less than 100 MB for GitHub
+df_nha_undersample = df_nha.sample(n = 10000, random_state = 69) #undersample for balancing
 
-main_df = pd.concat([df_ha, df_nha_undersample]).sample(frac = 1, random_state = 69) #main df for preprocessing
-main_df.to_csv("/Users/joshuawei/Downloads/ECS 111/FinalProject/main_df.csv", index=False)
-'''
+main_df = pd.concat([df_ha_undersample, df_nha_undersample]).sample(frac = 1, random_state = 69) #main df for preprocessing
+main_df.to_csv("main_df.csv", index=False)
+
 #------------------------Graph of High Pass Filter----------------------------------
 
 test_record = wfdb.rdrecord(f"finalDatabase/100")
