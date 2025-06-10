@@ -19,6 +19,21 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 
 
 #RESULTS: Logistic Regression Highest Accuracy is 0.892 with a C of 100
+
+# Test Accuracy: 0.8920
+# Confusion Matrix:
+# [[1801  198]
+#  [ 234 1767]]
+# Classification Report:
+#               precision    recall  f1-score   support
+
+#            0       0.89      0.90      0.89      1999
+#            1       0.90      0.88      0.89      2001
+
+#     accuracy                           0.89      4000
+#    macro avg       0.89      0.89      0.89      4000
+# weighted avg       0.89      0.89      0.89      4000
+
 #-----------End Notes-----------
 
 main_df = pd.read_csv("main_df.csv") 

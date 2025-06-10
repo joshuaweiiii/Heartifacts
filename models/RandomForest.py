@@ -5,8 +5,23 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 
 #-----------Notes--------------
 #n_jobs = parallelism control parameter, using -1 tells computer to use all CPU power possible
-#Started off with 10 estimators, bore 0.987 accuracy
-    #After tuning, 1000 estimators bore 0.9905 accuracy
+#Started off with 10 estimators, bore 98.7% accuracy
+    #After tuning, 1000 estimators bore 99.05% accuracy
+
+# Accuracy: 0.9905
+# Confusion Matrix:
+# [[1987   12]
+#  [  26 1975]]
+# Classification Report:
+#               precision    recall  f1-score   support
+
+#            0       0.99      0.99      0.99      1999
+#            1       0.99      0.99      0.99      2001
+
+#     accuracy                           0.99      4000
+#    macro avg       0.99      0.99      0.99      4000
+# weighted avg       0.99      0.99      0.99      4000
+
 #-----------End Notes-----------
 
 main_df = pd.read_csv("main_df.csv")
@@ -17,7 +32,7 @@ y = main_df["Label"].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 69)
 
 randomForest = RandomForestClassifier(
-    n_estimators = 10,
+    n_estimators = 1000,
     max_depth = None,
     random_state = 69,
     n_jobs = -1 #uses all available CPU cores (fastest option)
