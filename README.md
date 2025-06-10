@@ -44,9 +44,22 @@ Heartifacts/
 
 ```
 
-## **How to Run**
-1. Run ``` preprocessing.py ``` to generate ``` main_df.csv ```
-2. Run individual models in ``` models/ ``` folder:
+## **Getting Started**
+1. Clone the Repository (in Terminal):
+   
+``` git clone https://github.com/joshuaweiiii/Heartifacts.git ```
+
+2. Navigate into the project directory:
+   
+``` cd Heartifacts ```
+
+3. Install Required Packages:
+
+``` pip install -r requirements.txt ```
+
+4. Run ``` preprocessing.py ``` to generate ``` main_df.csv ```
+ 
+5. Run individual models in ``` models/ ``` folder:
 
 ```
 python3 models/LogisticRegression.py
