@@ -17,6 +17,8 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
     #large C -> super weak regularization -> model fits data closely -> possibly overfit
     #small C -> strong regularization -> simpler model -> reduces overfitting
 
+
+#RESULTS: Logistic Regression Highest Accuracy is 0.892 with a C of 100
 #-----------End Notes-----------
 
 main_df = pd.read_csv("main_df.csv") 
@@ -29,29 +31,29 @@ scaler = StandardScaler() #standardize features for logistic
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# logReg = LogisticRegression(C = 100, random_state = 69, max_iter = 1000) #initiate model
-# logReg.fit(X_train_scaled, y_train) #train model on training data
+logReg = LogisticRegression(C = 100, random_state = 69, max_iter = 1000) #initiate model
+logReg.fit(X_train_scaled, y_train) #train model on training data
 
-# y_pred = logReg.predict(X_test_scaled) #predict data using test data
+y_pred = logReg.predict(X_test_scaled) #predict data using test data
 
-# accuracy = accuracy_score(y_test, y_pred) #overall accuracy
-# conf_matrix = confusion_matrix(y_test, y_pred) #Predicted/True
-# class_report = classification_report(y_test, y_pred) #Precision Scores
+accuracy = accuracy_score(y_test, y_pred) #overall accuracy
+conf_matrix = confusion_matrix(y_test, y_pred) #Predicted/True
+class_report = classification_report(y_test, y_pred) #Precision Scores
 
-# print(f'Test Accuracy: {accuracy:.4f}')
-# print("Confusion Matrix:")
-# print(conf_matrix)
-# print("Classification Report:")
-# print(class_report)
+print(f'Test Accuracy: {accuracy:.4f}')
+print("Confusion Matrix:")
+print(conf_matrix)
+print("Classification Report:")
+print(class_report)
 
 #-------------Hyperparameter Tuning----------------
 
-for c in [0.01, 0.1, 1, 10, 100, 1000, 10000]:
+for c in [0.01, 0.1, 1, 10, 100, 1000, 10000]: #trying each C value
     logReg_ht = LogisticRegression(
         random_state = 69,
         max_iter = 1000,
         C = c,
-        penalty = "l2",
+        penalty = "l2", #ridge regularization
         solver = "lbfgs"
     )
     logReg_ht.fit(X_train_scaled, y_train)
